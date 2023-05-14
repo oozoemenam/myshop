@@ -28,4 +28,4 @@
 
 
 ## Author
-- @oozoemenam (https://github.com/oozoemenam)
+- David Oz (https://github.com/oozoemenam)
