@@ -3,7 +3,7 @@
 import * as t from './types';
 
 export const initialState = {
-    user: null,
+    user: 'null',
     error: null
 }
 

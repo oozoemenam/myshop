@@ -1,6 +1,6 @@
 import React from "react";
 
-export const IP = process.env.NODE_ENV === 'development' ? 'http://localhost:8000' : '';
+export const IP = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : '';
 
 
 export function capitalize(string) {

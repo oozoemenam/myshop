@@ -8,7 +8,7 @@ import jwtDecode from 'jwt-decode';
 import { connect } from 'react-redux';
 import { getUser, register, logout, updateGeolocation } from './account/actions';
 import PageNotFound from './Components/PageNotFound';
-import ProductListView from './shop/ProductListView';
+import ProductListView from './shop/ProductListView2';
 
 
 const App = ({ user, getUser, register, logout }) => {
@@ -34,22 +34,15 @@ const App = ({ user, getUser, register, logout }) => {
     // <Router history={history}>
     <Router>
       <Switch>
-        <PrivateRoute path='/products'>
+        <Route path='/products'>
           <ProductListView />
-        </PrivateRoute> 
+        </Route> 
         <Route path='/'>
           <LoginView />
         </Route>
-        {/* {user && (
-          <PrivateRoute exact path='/(rooms||nhie||tod||gtd)/:roomId?'>
-              <RoomView isDesktopOrLaptop={isDesktopOrLaptop} />
-          </PrivateRoute> 
-        )}
-        {!user && (
-          <Route path='/'>
-            <IndexView isDesktopOrLaptop={isDesktopOrLaptop} />
-          </Route>
-        )} */}
+        {/* <Route path='/'>
+          <LoginView />
+        </Route> */}
         <Route path='*'>
           <PageNotFound />
         </Route>

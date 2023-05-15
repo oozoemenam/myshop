@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { ADD_ITEM } from './types';
 import { LOGOUT_SUCCESS } from './account/types';
 import account from './account/reducer';
+import shop from './shop/reducer';
 
 const initialState = {
     numOfItems: 0
@@ -23,6 +24,7 @@ const reducer = (state = initialState, action) => {
 const appReducer = combineReducers({
     root: reducer,
     account,
+    shop
 });
 
 const rootReducer = (state, action) => {
