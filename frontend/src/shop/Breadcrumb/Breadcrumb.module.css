@@ -1,0 +1,25 @@
+
+.cdBreadcrumb, .cdMultiSteps {
+    width: 90%;
+    max-width: 768px;
+    padding: 0.5em 1em;
+    margin: 1em auto;
+    background-color: #edeff0;
+    border-radius: .25em;
+  }
+  .cdBreadcrumb::after, .cdMultiSteps::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+  .cdBreadcrumb li, .cdMultiSteps li {
+    display: inline-block;
+    margin: 0.5em 0;
+  }
+  .cdBreadcrumb li::after, .cdMultiSteps li::after {
+    display: inline-block;
+    content: '\00bb';
+    margin: 0 .6em;
+    color: #959fa5;
+  }
+  

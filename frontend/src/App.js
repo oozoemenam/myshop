@@ -3,12 +3,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import history from './history';
 import LoginView from './account/LoginView';
 import PrivateRoute from './Components/PrivateRoute';
-// import IndexView from './account/IndexView';
 import jwtDecode from 'jwt-decode';
 import { connect } from 'react-redux';
 import { getUser, register, logout, updateGeolocation } from './account/actions';
 import PageNotFound from './Components/PageNotFound';
-import ProductListView from './shop/ProductListView2';
+import Shop from './shop';
 
 
 const App = ({ user, getUser, register, logout }) => {
@@ -35,17 +34,14 @@ const App = ({ user, getUser, register, logout }) => {
     <Router>
       <Switch>
         <Route path='/products'>
-          <ProductListView />
-        </Route> 
+          <Shop />
+        </Route>
         <Route path='/'>
           <LoginView />
         </Route>
-        {/* <Route path='/'>
-          <LoginView />
-        </Route> */}
-        <Route path='*'>
+        {/* <Route path='*'>
           <PageNotFound />
-        </Route>
+        </Route> */}
       </Switch>
     </Router>
   );

@@ -1,0 +1,32 @@
+
+
+.container * {
+  color: var(--primary);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px 10px;
+}
+.card:hover {
+  background-color: var(--secondary);
+}
+.card {
+  height: 250px;
+  width: 250px;
+  padding: 20px;
+  border-radius: 15px;
+}
+.img {
+  height: 100px;
+  object-fit: contain;
+}
+.title {
+  min-height: 70px;
+}
+.price {
+  font-weight: bold;
+}

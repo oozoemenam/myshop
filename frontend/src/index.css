@@ -19,6 +19,7 @@ a, button, input[type="submit"], input[type="reset"] {
   cursor: pointer;
   display: inline;
   width: fit-content;
+  text-decoration: none;
 }
 
 :root {
