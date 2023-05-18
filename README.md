@@ -1,6 +1,7 @@
 # Shop!
 
-[//]: # (![]&#40;src/main/resources/static/Screenshot%202023-04-10.png&#41;)
+![](src/main/resources/static/2023-05-18.png)
+![](src/main/resources/static/2023-05-18-2.png)
 
 ## Getting Started
 
