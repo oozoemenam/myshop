@@ -1,6 +1,9 @@
 package com.myshop.security.config;
 
+import com.myshop.security.filter.AuthenticationEntryPointImpl;
 import com.myshop.security.filter.AuthenticationTokenFilter;
+import com.myshop.security.service.UserDetailsServiceImpl;
+
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,8 +24,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @AllArgsConstructor
 @EnableMethodSecurity
 public class SecurityConfig {
-    private final UserDetailsService userDetailsService;
-    private final AuthenticationEntryPoint unauthorizedHandler;
+    private final UserDetailsServiceImpl userDetailsService;
+    private final AuthenticationEntryPointImpl unauthorizedHandler;
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
@@ -54,8 +57,8 @@ public class SecurityConfig {
             .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
             .authorizeHttpRequests()
-            .requestMatchers("/api/auth/**").permitAll()
-            .requestMatchers("/api/test/**").permitAll()
+            .requestMatchers("/api/v1/auth/**").permitAll()
+            .requestMatchers("/api/v1/account/**").permitAll()
             .anyRequest().authenticated();
         http.authenticationProvider(authenticationProvider());
         http.addFilterBefore(authenticationTokenFilter(), UsernamePasswordAuthenticationFilter.class);

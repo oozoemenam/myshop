@@ -5,9 +5,9 @@ import styles from './PageNotFound.module.css';
 
 const PageNotFound = () => {
   return (
-    <div id={styles.PageNotFound}>
-      <div className={styles.PageNotFound}>
-        <div className={styles.PageNotFound404}>
+    <div className={styles.notfound}>
+      <div className={styles.notfound}>
+        <div className={styles.notfound404}>
           <h1>404</h1>
         </div>
         <h2>Oops! Nothing was found</h2>

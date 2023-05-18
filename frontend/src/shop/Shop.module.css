@@ -1,0 +1,154 @@
+
+
+.container * {
+    color: var(--primary);
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px 10px;
+  }
+  .card:hover {
+    background-color: var(--secondary);
+  }
+  .card {
+    height: 250px;
+    width: 250px;
+    padding: 20px;
+    border-radius: 15px;
+  }
+  .img {
+    height: 100px;
+    object-fit: contain;
+  }
+  .title {
+    min-height: 70px;
+  }
+  .price {
+    font-weight: bold;
+  }
+
+
+  .container {
+    margin: 0 auto;
+    /* max-width:930px; */
+    /* background-color: green; */
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+  }
+  @keyframes placeHolderShimmer {
+      0% {
+          -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+          background-position: -468px 0
+      }
+      to {
+          -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+          background-position: 468px 0
+      }
+  }
+  
+  .cardSkeleton {
+      width: 250px;
+      height:340px;
+      margin: 5px;
+      position: relative;
+       /* float: left; */
+      top: 0;
+      left: 0;
+      transition: all .3s ease-in-out;
+      -webkit-backface-visibility: hidden;
+      background: #fff;
+      z-index: 10;
+      padding: 15px;
+      opacity: 1
+  }
+  
+  /* .cardSkeleton.hidden {
+      transition: all .3s ease-in-out;
+      opacity: 0;
+      height: 0;
+      padding: 0
+  } */
+
+  .wrapper {
+    background-color: white;
+    /* height: 120px; */
+  }
+  
+  .cardSkeletonImg {
+      width: 100%;
+      height: 160px;
+      background: #e6e6e6;
+      display: block;
+      border-radius: 15px;
+      /* background-color: blue; */
+  }
+  
+  .animatedBackground {
+      will-change: transform;
+      animation: placeHolderShimmer 1s linear infinite forwards;
+      -webkit-backface-visibility: hidden;
+      background: #e6e6e6;
+      background: linear-gradient(90deg, #eee 8%, #ddd 18%, #eee 33%);
+      background-size: 800px 104px;
+      height: 100%;
+      position: relative
+  }
+  
+  .skelMaskContainer {
+      position: relative
+  }
+  
+  .skelMask {
+      background: #fff;
+      position: absolute;
+      z-index: 200
+  }
+  
+  .skelMask1 {
+      width: 100%;
+      height: 15px;
+      top: 0;
+      right: 0
+  }
+  
+  .skelMask2 {
+      width: 25%;
+      height: 40px;
+      top: 15px;
+      right: 0
+  }
+  
+  .skelMask3 {
+      top: 40px;
+      width: 100%;
+      height: 15px;
+      right: 0
+  }
+  
+  .skelMask4 {
+      top: 40px;
+      width: 50%;
+      height: 40px;
+      right: 0
+  }
+  
+  .skelMask5 {
+      width: 100%;
+      height: 40px;
+      top: 80px;
+      right: 0;
+  }
+  
+  .skelMask6 {
+      width: 75%;
+      height: 40px;
+      top: 120px;
+      right: 0
+  }

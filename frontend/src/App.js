@@ -10,7 +10,7 @@ import PageNotFound from './Components/PageNotFound';
 import Shop from './shop';
 
 
-const App = ({ user, getUser, register, logout }) => {
+const App = ({ user, getUser, account, logout }) => {
 
   React.useEffect(() => {
     const checkToken = async () => {
@@ -18,11 +18,11 @@ const App = ({ user, getUser, register, logout }) => {
       if (!token) return logout();
       
       const decoded = jwtDecode(token);
-      
+      console.log('decoded', decoded);
+      console.log('account', account);
       const now = Date.now() / 1000;
       if (decoded.exp < now) return logout();
-             
-      if (!user) getUser(token);
+      if (!user) getUser(decoded.sub);
     }
 
     checkToken();
@@ -33,21 +33,29 @@ const App = ({ user, getUser, register, logout }) => {
     // <Router history={history}>
     <Router>
       <Switch>
-        <Route path='/products'>
+        {/* <PrivateRoute exact path={['/products', '/']}> */}
+        {/* <PrivateRoute exact path=''>
           <Shop />
-        </Route>
-        <Route path='/'>
+        </PrivateRoute> */}
+        <PrivateRoute exact path={['/products', '/']}>
+          <Shop />
+        </PrivateRoute>
+        {/* <PrivateRoute exact path='/products'>
+          <Shop />
+        </PrivateRoute> */}
+        <Route exact path='/login'>
           <LoginView />
         </Route>
-        {/* <Route path='*'>
+        <Route path='*'>
           <PageNotFound />
-        </Route> */}
+        </Route>
       </Switch>
     </Router>
   );
 }
 
 const mapStateToProps = state => ({
+  account: state.account,
   user: state.account.user
 })
 

@@ -3,7 +3,8 @@
 import * as t from './types';
 
 export const initialState = {
-    user: 'null',
+    user: null,
+    token: localStorage.getItem('token'),
     error: null
 }
 
@@ -37,9 +38,9 @@ const reducer = (state = initialState, action) => {
             console.log('success!', action);
             return {
                 ...state,
+                userLoading: false,
                 user: action.user,
                 isAuthenticated: true,
-                friends: action.user.friends,
                 token: action.token
             }
         // case t.CLEAR_ERROR:

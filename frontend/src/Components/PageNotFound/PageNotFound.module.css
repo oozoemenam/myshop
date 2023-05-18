@@ -13,7 +13,7 @@ body {
   height: 100vh;
 }
 
-#notfound .notfound {
+.notfound {
   position: absolute;
   left: 50%;
   top: 50%;

@@ -8,10 +8,8 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 const ProductList = ({ products, getProducts }) => {
 	React.useEffect(() => {
 		getProducts();
-		console.log('get0');
 	}, []);
 
-	console.log('products', products);
 	return (
 		<Link to='#' className={styles.container}>
 			{products && products.map(({ id, title, price, category, description, image }) => {

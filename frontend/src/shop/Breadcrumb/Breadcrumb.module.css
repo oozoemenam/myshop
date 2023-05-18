@@ -6,6 +6,7 @@
     margin: 1em auto;
     background-color: #edeff0;
     border-radius: .25em;
+    text-align: left;
   }
   .cdBreadcrumb::after, .cdMultiSteps::after {
     clear: both;

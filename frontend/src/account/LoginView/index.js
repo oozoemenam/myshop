@@ -6,15 +6,19 @@ import { login } from '../actions';
 import styles from './LoginView.module.css';
 import * as v from 'react-icons/vsc';
 import * as io from 'react-icons/io';
+import { useHistory } from 'react-router-dom';
 
-const LoginView = ({ user, login, error, loading, isAuthenticated }) => {
+
+const LoginView = ({ user, login, error, loading }) => {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
 
-  const handleLogin = e => {
-    e.preventDefault();
+  const history = useHistory();
 
-    login({ username, password });
+  const handleLogin = async e => {
+    e.preventDefault();
+    await login({ username, password });
+    history.go('/');
   }
 
   if (user) return <Redirect to='/' />
@@ -54,7 +58,7 @@ const LoginView = ({ user, login, error, loading, isAuthenticated }) => {
 
             <span className='error-msg'>{error}</span>
 
-            <button className={styles.primaryBtn}>
+            <button type="submit" className={styles.primaryBtn}>
               {loading && <LoadingButton />} 
               {!loading && (
                 <span>
