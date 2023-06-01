@@ -4,43 +4,57 @@ import * as v from 'react-icons/vsc';
 import { connect } from 'react-redux';
 import { Link, Redirect, useHistory } from 'react-router-dom';
 import LoadingButton from '../../Components/LoadingButton';
-import { login } from '../actions';
-import styles from './LoginView.module.css';
+import { login, register } from '../actions';
+import styles from './RegisterView.module.css';
 
-const LoginView = ({ user, login, error, loading }) => {
+const RegisterView = ({ user, register, login, error, loading }) => {
 	const [username, setUsername] = React.useState('user');
+	const [email, setEmail] = React.useState('user@email.com');
 	const [password, setPassword] = React.useState('password');
 	const [showPassword, setShowPassword] = React.useState(false);
 
 	const history = useHistory();
 
-	const handleLogin = async (e) => {
+	const handleRegister = async (e) => {
 		e.preventDefault();
+		await register({ username, email, password });
 		await login({ username, password });
-		history.go('/');
+		history.go('/login');
 	};
 
-	if (user) return <Redirect to='/' />;
+	if (user) return <Redirect to='/login' />;
 
 	return (
 		<div className={styles.container}>
 			<div className={styles.wrapper}>
 				<div className={styles.header}>
-					<h1 className={styles.title}>Accedi</h1>
+					<h1 className={styles.title}>Registrati</h1>
 				</div>
 
 				<form
 					className={styles.form}
-					onSubmit={handleLogin}
+					onSubmit={handleRegister}
 				>
 					<div className={styles.formGroup}>
 						<v.VscMail size='20px' />
 						<input
 							type='username'
 							name='username'
-							placeholder='Inserisci la tua email di utente'
+							placeholder='Inserisci la tua nome di utente'
 							value={username}
 							onChange={(e) => setUsername(e.target.value)}
+							required
+						/>
+					</div>
+
+					<div className={styles.formGroup}>
+						<v.VscMail size='20px' />
+						<input
+							type='email'
+							name='email'
+							placeholder='Inserisci la tua email'
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
 							required
 						/>
 					</div>
@@ -75,7 +89,7 @@ const LoginView = ({ user, login, error, loading }) => {
 									size='20px'
 									style={{ width: 40 }}
 								/>
-								<span>Accedi</span>
+								<span>Registrati</span>
 							</span>
 						)}
 					</button>
@@ -107,7 +121,7 @@ const LoginView = ({ user, login, error, loading }) => {
 				</form>
 
 				<div className={styles.centered}>
-					<Link to='/register'>Registrati</Link>
+					<Link to='/login'>Accedi</Link>
 				</div>
 			</div>
 		</div>
@@ -120,4 +134,4 @@ const mapStateToProps = (state) => ({
 	error: state.account.error,
 });
 
-export default connect(mapStateToProps, { login })(LoginView);
+export default connect(mapStateToProps, { register, login })(RegisterView);
